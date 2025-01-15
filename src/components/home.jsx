@@ -244,8 +244,8 @@ function MinhaTelaInicial() {
           
           <div className="footer-section">
             <h3>Suporte para Pós-Venda</h3>
-            <p>Atendimento ao consumidor: (11) 3198-5812</p>
-            <p>E-mail: rma.mobilidade@grupomulti.com.br</p>
+            <p>Atendimento ao consumidor: (21) 97511-5030</p>
+            <p>E-mail: suporte@live-motors.com.br</p>
           </div>
         </div>
       </footer>
