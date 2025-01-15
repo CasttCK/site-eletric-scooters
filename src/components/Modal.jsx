@@ -1,35 +1,90 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Modal.styles.css';
 
-const Modal = ({ isOpen, onClose, children }) => {
+const Modal = ({ product, onClose }) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
   useEffect(() => {
-    if (isOpen) {
-      // Bloqueia o scroll do body quando o modal abre
-      document.body.style.overflow = 'hidden';
-    } else {
-      // Restaura o scroll quando o modal fecha
-      document.body.style.overflow = 'unset';
-    }
-
-    // Cleanup: restaura o scroll quando o componente é desmontado
+    document.body.style.overflow = 'hidden';
+    
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [isOpen]);
+  }, []);
+  
+  if (!product) return null;
 
-  if (!isOpen) return null;
-
-  const handleOverlayClick = (e) => {
-    if (e.target === e.currentTarget) {
-      onClose();
+  // Função para gerar o caminho da segunda imagem
+  const getSecondImagePath = (originalPath) => {
+    try {
+      // Se a imagem foi importada via webpack, ela terá um formato específico
+      if (typeof originalPath === 'string' && originalPath.startsWith('/static/media/')) {
+        // Extrair o nome base do arquivo da URL webpack
+        const baseName = originalPath.split('/').pop().split('.')[0];
+        return require(`../assets/images/${baseName}_2.png`);
+      } else {
+        // Para imagens importadas diretamente
+        return originalPath.replace('.png', '_2.png');
+      }
+    } catch (error) {
+      console.warn('Segunda imagem não encontrada:', error);
+      return originalPath; // Retorna a imagem original em caso de erro
     }
+  };
+  
+  const images = [
+    product.image,
+    product.image2
+  ];
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  const handleComprar = () => {
+    alert('Função de compra será implementada em breve!');
   };
 
   return (
-    <div className="modal-overlay" onClick={handleOverlayClick}>
+    <div className="modal-overlay">
       <div className="modal-content">
-        <button className="modal-close" onClick={onClose}>×</button>
-        {children}
+        <button className="close-button" onClick={onClose}></button>
+        
+        <div className="image-carousel">
+          <button className="carousel-button prev" onClick={prevImage}>‹</button>
+          <img 
+            src={images[currentImageIndex]} 
+            alt={product.name} 
+            className="modal-image"
+          />
+          <button className="carousel-button next" onClick={nextImage}>›</button>
+        </div>
+
+        <div className="modal-info">
+          <h2>{product.name}</h2>
+          <p>{product.description}</p>
+          
+          <div className="caracteristicas">
+            <h3>Características:</h3>
+            <ul>
+              {product.caracteristicas.map((caracteristica, index) => (
+                <li key={index}>{caracteristica}</li>
+              ))}
+            </ul>
+          </div>
+          
+          <p className="price">R$ {product.price.toFixed(2)}</p>
+          
+          <div className="btn-comprar-container">
+            <button className="btn-comprar" onClick={handleComprar}>
+              Comprar agora
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
