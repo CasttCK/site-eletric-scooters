@@ -1,0 +1,124 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: modalFadeIn 0.3s ease-out;
+  font-family: 'Roboto', sans-serif;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px;
+  color: #333;
+}
+
+.modal-close:hover {
+  color: #000;
+}
+
+.modelo-modal {
+  text-align: center;
+}
+
+.modelo-modal img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.modelo-caracteristicas {
+  text-align: left;
+  margin: 20px 0;
+}
+
+.modelo-caracteristicas ul {
+  list-style: none;
+  padding: 0;
+}
+
+.modelo-caracteristicas li {
+  margin: 10px 0;
+  padding-left: 20px;
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+.modelo-caracteristicas li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+}
+
+.btn-comprar {
+  background: #ff0000;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  width: auto;
+  display: inline-block;
+  margin-top: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+
+.btn-comprar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  background: #e60000;
+}
+
+.modelo-modal h2 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.modelo-caracteristicas h3 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  margin-bottom: 10px;
+} 

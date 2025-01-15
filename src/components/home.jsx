@@ -6,6 +6,7 @@ import bannerImage from '../assets/images/banner.png';
 import x11Image from '../assets/images/x11.png';
 import harleyImage from '../assets/images/harley.png';
 import bikeImage from '../assets/images/bike.png';
+import Modal from './Modal';
 
 const mapContainerStyle = {
   width: '100%',
@@ -26,7 +27,67 @@ const locations = [
   }
 ];
 
+const modelosData = {
+  x11: {
+    nome: "X11",
+    imagem: x11Image,
+    preco: "R$ 19.990,00",
+    caracteristicas: [
+      "Potência: 3000W",
+      "Velocidade máxima: 90 km/h",
+      "Autonomia: até 100 km",
+      "Bateria: Lítio 72V 32Ah",
+      "Tempo de recarga: 6 horas",
+      "Peso: 98 kg"
+    ]
+  },
+  harley: {
+    nome: "Harley",
+    imagem: harleyImage,
+    preco: "R$ 24.990,00",
+    caracteristicas: [
+      "Potência: 3500W",
+      "Velocidade máxima: 95 km/h",
+      "Autonomia: até 120 km",
+      "Bateria: Lítio 72V 40Ah",
+      "Tempo de recarga: 7 horas",
+      "Peso: 115 kg"
+    ]
+  },
+  bike: {
+    nome: "Bike",
+    imagem: bikeImage,
+    preco: "R$ 9.990,00",
+    caracteristicas: [
+      "Potência: 1500W",
+      "Velocidade máxima: 45 km/h",
+      "Autonomia: até 60 km",
+      "Bateria: Lítio 48V 20Ah",
+      "Tempo de recarga: 4 horas",
+      "Peso: 65 kg"
+    ]
+  }
+};
+
 function MinhaTelaInicial() {
+  const [modalAberto, setModalAberto] = React.useState(false);
+  const [modeloSelecionado, setModeloSelecionado] = React.useState(null);
+
+  const abrirModal = (modelo) => {
+    setModeloSelecionado(modelosData[modelo]);
+    setModalAberto(true);
+  };
+
+  const fecharModal = () => {
+    setModalAberto(false);
+    setModeloSelecionado(null);
+  };
+
+  const handleComprar = () => {
+    // Implementar lógica de compra aqui
+    alert('Função de compra será implementada em breve!');
+  };
+
   const handleComoChegar = (endereco) => {
     const enderecoFormatado = encodeURIComponent(endereco);
     window.open(`https://www.google.com/maps/dir/?api=1&destination=${enderecoFormatado}`, '_blank');
@@ -91,7 +152,7 @@ function MinhaTelaInicial() {
               <div className="modelo-info">
                 <h3>X11</h3>
                 <p>A moto elétrica mais potente da categoria</p>
-                <button className="btn-modelo">Ver detalhes</button>
+                <button className="btn-modelo" onClick={() => abrirModal('x11')}>Ver detalhes</button>
               </div>
             </div>
 
@@ -102,7 +163,7 @@ function MinhaTelaInicial() {
               <div className="modelo-info">
                 <h3>Harley</h3>
                 <p>Design clássico com tecnologia moderna</p>
-                <button className="btn-modelo">Ver detalhes</button>
+                <button className="btn-modelo" onClick={() => abrirModal('harley')}>Ver detalhes</button>
               </div>
             </div>
 
@@ -113,7 +174,7 @@ function MinhaTelaInicial() {
               <div className="modelo-info">
                 <h3>Bike</h3>
                 <p>Mobilidade urbana com estilo e eficiência</p>
-                <button className="btn-modelo">Ver detalhes</button>
+                <button className="btn-modelo" onClick={() => abrirModal('bike')}>Ver detalhes</button>
               </div>
             </div>
           </div>
@@ -182,6 +243,28 @@ function MinhaTelaInicial() {
           </div>
         </div>
       </footer>
+
+      <Modal isOpen={modalAberto} onClose={fecharModal}>
+        {modeloSelecionado && (
+          <div className="modelo-modal">
+            <h2>{modeloSelecionado.nome}</h2>
+            <img src={modeloSelecionado.imagem} alt={modeloSelecionado.nome} />
+            <div className="modelo-caracteristicas">
+              <h3>Características:</h3>
+              <ul>
+                {modeloSelecionado.caracteristicas.map((caracteristica, index) => (
+                  <li key={index}>{caracteristica}</li>
+                ))}
+              </ul>
+              <h3>Preço:</h3>
+              <p>{modeloSelecionado.preco}</p>
+            </div>
+            <button className="btn-comprar" onClick={handleComprar}>
+              Comprar agora
+            </button>
+          </div>
+        )}
+      </Modal>
     </div>
   );
 }
