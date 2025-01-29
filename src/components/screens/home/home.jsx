@@ -1,15 +1,15 @@
 import React from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import './home.styles.css';
-import logoLiveMotors from '../assets/images/logo_live_motors.png';
-import bannerImage from '../assets/images/banner.png';
-import x11Image from '../assets/images/x11.png';
-import x11Image2 from '../assets/images/x11_2.png';
-import harleyImage from '../assets/images/harley.png';
-import harleyImage2 from '../assets/images/harley_2.png';
-import bikeImage from '../assets/images/bike.png';
-import bikeImage2 from '../assets/images/bike_2.png';
-import Modal from './Modal';
+import logoLiveMotors from '../../../assets/images/logo_live_motors.png';
+import bannerImage from '../../../assets/images/banner.png';
+import x11Image from '../../../assets/images/x11.png';
+import x11Image2 from '../../../assets/images/x11_2.png';
+import harleyImage from '../../../assets/images/harley.png';
+import harleyImage2 from '../../../assets/images/harley_2.png';
+import bikeImage from '../../../assets/images/bike.png';
+import bikeImage2 from '../../../assets/images/bike_2.png';
+import Modal from '../modal/Modal';
 
 const mapContainerStyle = {
   width: '100%',
@@ -108,34 +108,6 @@ function MinhaTelaInicial() {
 
   return (
     <div className="watts-container">
-      <header className="watts-header">
-        <nav className="nav-principal">
-          <div className="logo">
-            <img src={logoLiveMotors} alt="Live Motors" />
-          </div>
-          <div className="menu-principal">
-            <ul>
-              <li className="menu-dropdown">
-                <span>Veículos</span>
-                <div className="submenu">
-                  <a href="/motos-eletricas">Motos elétricas</a>
-                  <a href="/scooters-eletricas">Scooters elétricas</a>
-                </div>
-              </li>
-              <li><a href="/quem-somos">Quem somos</a></li>
-              <li className="menu-dropdown">
-                <span>Revenda</span>
-                <div className="submenu">
-                  <a href="/encontre-revendedor">Encontre um revendedor</a>
-                  <a href="/seja-revendedor">Seja um revendedor</a>
-                </div>
-              </li>
-              <li><a href="/contato">Fale conosco</a></li>
-            </ul>
-          </div>
-        </nav>
-      </header>
-
       <section className="banner-principal">
         <div className="banner-image">
           <img src={bannerImage} alt="Banner Live Motors" />

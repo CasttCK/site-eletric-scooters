@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useCart } from '../../../context/CartContext';
 import './Modal.styles.css';
 
 const Modal = ({ product, onClose }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const navigate = useNavigate();
+  const { addToCart } = useCart();
   
   useEffect(() => {
     document.body.style.overflow = 'hidden';
@@ -21,7 +25,8 @@ const Modal = ({ product, onClose }) => {
       if (typeof originalPath === 'string' && originalPath.startsWith('/static/media/')) {
         // Extrair o nome base do arquivo da URL webpack
         const baseName = originalPath.split('/').pop().split('.')[0];
-        return require(`../assets/images/${baseName}_2.png`);
+        // Corrigindo o caminho para apontar para a pasta assets na raiz do src
+        return require(`../../../assets/images/${baseName}_2.png`);
       } else {
         // Para imagens importadas diretamente
         return originalPath.replace('.png', '_2.png');
@@ -46,7 +51,14 @@ const Modal = ({ product, onClose }) => {
   };
 
   const handleComprar = () => {
-    alert('Função de compra será implementada em breve!');
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image
+    });
+    onClose();
+    navigate('/checkout');
   };
 
   return (

@@ -2,6 +2,21 @@
   text-align: center;
 }
 
+/* Adicionando estilos para o container principal */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Adicionando margin-top para o conteúdo principal */
+.main-content {
+  margin-top: 80px; /* Ajuste este valor de acordo com a altura do seu header */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
