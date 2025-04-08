@@ -1,74 +1,92 @@
-<<<<<<< HEAD
-# site-eletric-scooters
-=======
-# Getting Started with Create React App
+# Motos Elétricas Brasil
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Logo da Motos Elétricas Brasil](public/logo.png)
 
-## Available Scripts
+## Sobre o Projeto
 
-In the project directory, you can run:
+Bem-vindo ao repositório do site Motos Elétricas Brasil! Esta plataforma foi desenvolvida para conectar entusiastas e compradores de motos elétricas com os melhores produtos do mercado. Nossa missão é promover a mobilidade sustentável através de uma experiência de compra digital intuitiva e informativa.
 
-### `npm start`
+## Características Principais
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 🏍️ Catálogo completo de motos elétricas de diversas marcas
+- 🔋 Informações detalhadas sobre autonomia, potência e baterias
+- 💰 Comparativo de preços e condições de financiamento
+- 🛒 Carrinho de compras e sistema de checkout seguro
+- 👤 Área do cliente para acompanhamento de pedidos
+- 📱 Design responsivo para uma experiência perfeita em qualquer dispositivo
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tecnologias Utilizadas
 
-### `npm test`
+- React.js
+- HTML5 & CSS3
+- JavaScript (ES6+)
+- Node.js (backend)
+- MongoDB (banco de dados)
+- API de pagamentos
+- Sistema de autenticação JWT
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Como Executar o Projeto
 
-### `npm run build`
+### Pré-requisitos
+- Node.js (versão 14.x ou superior)
+- npm ou yarn
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Instalação e Execução
+1. Clone este repositório:
+   ```
+   git clone https://github.com/seu-usuario/motos-eletricas-brasil.git
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Instale as dependências:
+   ```
+   npm install
+   ```
+   ou
+   ```
+   yarn install
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Execute o projeto em modo de desenvolvimento:
+   ```
+   npm start
+   ```
+   ou
+   ```
+   yarn start
+   ```
 
-### `npm run eject`
+4. Acesse o site em: [http://localhost:3000](http://localhost:3000)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Estrutura do Projeto
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- `/src` - Código fonte do projeto
+  - `/components` - Componentes React reutilizáveis
+  - `/pages` - Páginas da aplicação
+  - `/assets` - Imagens e recursos estáticos
+  - `/services` - Serviços e integrações com APIs
+  - `/context` - Contextos para gerenciamento de estado
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Contribuindo
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`)
+3. Faça commit das suas alterações (`git commit -m 'Adiciona nova feature'`)
+4. Faça push para a branch (`git push origin feature/nova-feature`)
+5. Abra um Pull Request
 
-## Learn More
+## Roadmap
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [ ] Implementação de sistema de avaliações e reviews
+- [ ] Integração com vendedores parceiros
+- [ ] Sistema de agendamento de test-drive
+- [ ] Blog com conteúdo sobre mobilidade elétrica
+- [ ] Calculadora de economia comparando motos elétricas vs. combustão
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contato
 
-### Code Splitting
+Email: contato@motoseletricasbrasil.com.br
+Site: www.motoseletricasbrasil.com.br
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Licença
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
->>>>>>> 6324c2c (initial commit)
+Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
