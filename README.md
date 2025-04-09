@@ -1,6 +1,5 @@
 # Motos Elétricas Brasil
 
-![Logo da Motos Elétricas Brasil](public/logo.png)
 
 ## Sobre o Projeto
 
